@@ -1,6 +1,6 @@
 {
   "name": "@hacknlove/fetchhelper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small sintax sugar to use fetch",
   "main": "index.js",
   "scripts": {

@@ -1,4 +1,4 @@
-export default async function fetchHelper (url, options) {
+module.exports = async function fetchHelper (url, options) {
   url = await url
   if (Array.isArray(url)) {
     options = url[1]
