@@ -1,3 +1,4 @@
+const fetch = require('node-fetch')
 module.exports = async function fetchHelper (url, options) {
   url = await url
   if (Array.isArray(url)) {
