@@ -1,6 +1,11 @@
 const fetch = require('node-fetch')
 module.exports = async function fetchHelper (url, options) {
   url = await url
+
+  if (url instanceof Function) {
+    url = await url()
+  }
+
   if (Array.isArray(url)) {
     options = url[1]
     url = url[0]

@@ -12,8 +12,10 @@ async function example1 () {
 
 async function example2 () {
   const [response, error] = await fetchHelper([url, options])
+}
 
-  // The parameter can be passed as an array, for convenience to use with safeapi-client and with useEndPoint
+async function example3 () {
+  const [response, error] = await fetchHelper(() => [url, options])
 }
 
 
