@@ -157,6 +157,22 @@ test.serial('if fetch resolve {ok: true, ...}, returns [{ok: true, ...}, undefin
 
 })
 
+test.serial('if response.json() fails it returns [null, {error}]', async t => {
+  global.fetch = () => {
+    return Promise.resolve({
+      ok: true,
+      json () {
+        return Promise.reject({foo: 'bar'})
+      }
+    })
+  }
+
+  const response = await fetchHelper('', {})
+  t.deepEqual(response, [null, {
+    foo: 'bar'
+  }])
+})
+
 test.serial('it calls custom fetch if assigned', async t => {
   fetchHelper.fetch = () => {
     t.pass()
