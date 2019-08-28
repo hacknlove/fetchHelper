@@ -1,6 +1,6 @@
 {
   "name": "@hacknlove/fetchhelper",
-  "version": "1.3.1",
+  "version": "1.4.1",
   "description": "Polymorphic fetch helper that allows you to pass the parameters in many ways, and brings you the response conveniently processed for your REST APIs",
   "main": "index.js",
   "files": [
@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/hacknlove/fetchHelper#readme",
   "devDependencies": {
-    "ava": "^2.2.0",
+    "ava": "^2.3.0",
     "eslint": "^6.1.0",
     "eslint-config-standard": "^13.0.1",
     "eslint-plugin-import": "^2.18.2",

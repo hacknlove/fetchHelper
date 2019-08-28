@@ -17,6 +17,15 @@ async function fetchHelper (url, options) {
     options = url[1]
     url = url[0]
   }
+
+  if (options && options.json) {
+    options.body = JSON.stringify(options.json)
+    options.headers = {
+      ...options.headers,
+      'Content-Type': 'application/json'
+    }
+  }
+
   var response = await myFetch(url, options).catch(e => ({
     error: e
   }))

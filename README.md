@@ -33,6 +33,8 @@ Same as calling `fetch(await callfront(), options)`
 ### Callfront that will return a promise that will resolve to [url, options] `fetchHelper(callfront)`
 Same as calling `fetch(await callfront())`
 
+### options.json
+It sets the body to JSON.stringify(options.json), and the Content-Type to application/json
 
 ## Return
 

@@ -173,6 +173,20 @@ test.serial('if response.json() fails it returns [null, {error}]', async t => {
   }])
 })
 
+test.serial('option json send json', async t => {
+  const url = 'unaurl'
+  const options = {
+    json: { a: 1, b: 2 }
+  }
+  global.fetch = (u, o) => {
+    t.is(u, url)
+    t.is(options.body, JSON.stringify({ a: 1, b: 2 }))
+    t.is(options.headers['Content-Type'], 'application/json')
+    return Promise.resolve(true)
+  }
+  await fetchHelper(url, options)
+})
+
 test.serial('it calls custom fetch if assigned', async t => {
   fetchHelper.fetch = () => {
     t.pass()
