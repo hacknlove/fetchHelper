@@ -18,6 +18,8 @@ async function fetchHelper (url, options) {
     url = url[0]
   }
 
+  options = { ...options }
+
   if (options && options.json) {
     options.body = JSON.stringify(options.json)
     options.headers = {
@@ -30,10 +32,6 @@ async function fetchHelper (url, options) {
     error: e
   }))
 
-  if (response.error) {
-    return [null, response.error]
-  }
-
   if (!response.ok) {
     return [null, response]
   }
@@ -41,7 +39,11 @@ async function fetchHelper (url, options) {
   try {
     response = await response.json()
   } catch (e) {
-    return [null, e]
+    return [null, response]
+  }
+
+  if (response.error) {
+    return [null, response]
   }
 
   return [response, undefined]

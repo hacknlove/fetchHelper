@@ -51,6 +51,9 @@ When
 ### If fetch resolves to `{ok: true, ....}`
 `[await response.json(), udefined]`
 
+### If json has error
+`[null, json]`
+
 ## Isomorphic
 
 You can install the polyfill you want, or you can assign the `fetch` you like to `fetchHelper.fetch`
