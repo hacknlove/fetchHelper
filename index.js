@@ -31,6 +31,9 @@ async function fetchHelper (url, options) {
   var response = await myFetch(url, options).catch(e => ({
     error: e
   }))
+  if (response.error) {
+    return [null, response.error]
+  }
 
   if (!response.ok) {
     return [null, response]
